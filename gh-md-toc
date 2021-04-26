@@ -303,11 +303,12 @@ gh_toc_get_filename() {
 #
 # Find all Markdown files for non-hidden folders
 #
-all_md_filename=""
 gh_all_md_filename() {
+    all_md_filename=""
     while IFS= read -r -d $'\0'; do
         all_md_filename=" $all_md_filename $REPLY"
     done < <(find . -path "*\/\.*" -prune -o -type f -name "*.md" -print0)
+    echo "$all_md_filename"
 }
 
 #
@@ -392,8 +393,7 @@ gh_toc_app() {
     fi
 
     if [ "$1" = '--all' ]; then
-        gh_all_md_filename
-        gh_toc_app $all_md_filename
+        gh_toc_app $(gh_all_md_filename)
         return
     fi
 
@@ -401,13 +401,21 @@ gh_toc_app() {
         need_replace="no"
     fi
 
+    base_path=$(pwd)
     for md in "$@"; do
         echo ""
+        dir_path=${md%/*}
+        md=${md##*/}
+        if [ ! "$dir_path" == "$md" ]; then
+            cd "$dir_path" || exit
+        fi
+
         gh_toc "$md" "$#" "$need_replace" "$no_backup" "$no_footer" "$auto" "$head"
+        cd "$base_path" || exit
     done
 
     echo ""
-    echo "Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)"
+    echo "Created by [gh-md-toc](https://github.com/yiranzai/github-markdown-toc)"
 }
 
 #

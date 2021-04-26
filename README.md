@@ -17,12 +17,12 @@ gh-md-toc is able to process:
 gh-md-toc tested on Ubuntu, and macOS High Sierra (gh-md-toc release 0.4.9). If you want it on Windows, you
 better to use a golang based implementation:
 
-  * [github-markdown-toc.go](https://github.com/ekalinin/github-markdown-toc.go)
+  * [github-markdown-toc.go](https://github.com/yiranzai/github-markdown-toc.go)
 
 It's more solid, reliable and with ability of a parallel processing. And
 absolutely without dependencies.
 
-[![Build Status](https://travis-ci.org/ekalinin/github-markdown-toc.svg?branch=master)](https://travis-ci.org/ekalinin/github-markdown-toc)
+[![Build Status](https://travis-ci.org/yiranzai/github-markdown-toc.svg?branch=master)](https://travis-ci.org/yiranzai/github-markdown-toc)
 
 Table of contents
 =================
@@ -53,19 +53,19 @@ Installation
 
 Linux (manual installation)
 ```bash
-$ wget https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc
+$ wget https://raw.githubusercontent.com/yiranzai/github-markdown-toc/master/gh-md-toc
 $ chmod a+x gh-md-toc
 ```
 
 MacOS (manual installation)
 ```bash
-$ curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o gh-md-toc
+$ curl https://raw.githubusercontent.com/yiranzai/github-markdown-toc/master/gh-md-toc -o gh-md-toc
 $ chmod a+x gh-md-toc
 ```
 
 Linux or MacOS (using [Basher](https://github.com/basherpm/basher))
 ```bash
-$ basher install ekalinin/github-markdown-toc
+$ basher install yiranzai/github-markdown-toc
 # `gh-md-toc` will automatically be available in the PATH
 ```
 
@@ -113,14 +113,14 @@ Remote files
 
 And here's an example, when you have a README.md like this:
 
-  * [README.md without TOC](https://github.com/ekalinin/envirius/blob/f939d3b6882bfb6ecb28ef7b6e62862f934ba945/README.md)
+  * [README.md without TOC](https://github.com/yiranzai/envirius/blob/f939d3b6882bfb6ecb28ef7b6e62862f934ba945/README.md)
 
 And you want to generate TOC for it.
 
 There is nothing easier:
 
 ```bash
-➥ ./gh-md-toc https://github.com/ekalinin/envirius/blob/master/README.md
+➥ ./gh-md-toc https://github.com/yiranzai/envirius/blob/master/README.md
 
 Table of Contents
 =================
@@ -164,16 +164,16 @@ Table of Contents
 That's all! Now all you need — is copy/paste result from console into original
 README.md.
 
-If you do not want to copy from console you can add `> YOURFILENAME.md` at the end of the command like `./gh-md-toc https://github.com/ekalinin/envirius/blob/master/README.md > table-of-contents.md` and this will store the table of contents to a file named table-of-contents.md in your current folder.
+If you do not want to copy from console you can add `> YOURFILENAME.md` at the end of the command like `./gh-md-toc https://github.com/yiranzai/envirius/blob/master/README.md > table-of-contents.md` and this will store the table of contents to a file named table-of-contents.md in your current folder.
 
 And here is a result:
 
-  * [README.md with TOC](https://github.com/ekalinin/envirius/blob/24ea3be0d3cc03f4235fa4879bb33dc122d0ae29/README.md)
+  * [README.md with TOC](https://github.com/yiranzai/envirius/blob/24ea3be0d3cc03f4235fa4879bb33dc122d0ae29/README.md)
 
 Moreover, it's able to work with GitHub's wiki pages:
 
 ```bash
-➥ ./gh-md-toc https://github.com/ekalinin/nodeenv/wiki/Who-Uses-Nodeenv
+➥ ./gh-md-toc https://github.com/yiranzai/nodeenv/wiki/Who-Uses-Nodeenv
 
 Table of Contents
 =================
@@ -217,7 +217,7 @@ You can easily combine both ways:
 ```bash
 ➥ ./gh-md-toc \
     ~/projects/Dockerfile.vim/README.md \
-    https://github.com/ekalinin/sitemap.s/blob/master/README.md
+    https://github.com/yiranzai/sitemap.s/blob/master/README.md
 
   * [Dockerfile.vim](~/projects/Dockerfile.vim/README.md#dockerfilevim)
   * [Screenshot](~/projects/Dockerfile.vim/README.md#screenshot)
@@ -226,12 +226,12 @@ You can easily combine both ways:
         * [OR using Vundle:](~/projects/Dockerfile.vim/README.md#or-using-vundle)
   * [License](~/projects/Dockerfile.vim/README.md#license)
 
-  * [sitemap.js](https://github.com/ekalinin/sitemap.js/blob/master/README.md#sitemapjs)
-    * [Installation](https://github.com/ekalinin/sitemap.js/blob/master/README.md#installation)
-    * [Usage](https://github.com/ekalinin/sitemap.js/blob/master/README.md#usage)
-    * [License](https://github.com/ekalinin/sitemap.js/blob/master/README.md#license)
+  * [sitemap.js](https://github.com/yiranzai/sitemap.js/blob/master/README.md#sitemapjs)
+    * [Installation](https://github.com/yiranzai/sitemap.js/blob/master/README.md#installation)
+    * [Usage](https://github.com/yiranzai/sitemap.js/blob/master/README.md#usage)
+    * [License](https://github.com/yiranzai/sitemap.js/blob/master/README.md#license)
 
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+Created by [gh-md-toc](https://github.com/yiranzai/github-markdown-toc)
 ```
 
 Auto insert and update TOC
@@ -268,7 +268,7 @@ Table of Contents
 !! TOC added into a separate file: 'README.test.md.toc.2018-02-04_192655'
 
 
-Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+Created by [gh-md-toc](https://github.com/yiranzai/github-markdown-toc)
 ```
 
 Now check the same file:
@@ -361,7 +361,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o gh-md-toc
+          curl https://raw.githubusercontent.com/yiranzai/github-markdown-toc/master/gh-md-toc -o gh-md-toc
           chmod a+x gh-md-toc
           ./gh-md-toc --insert --no-backup foo.md
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -420,13 +420,13 @@ $ docker build -t markdown-toc-generator .
 * Run on an URL
 
 ```shell
-$ docker run -it markdown-toc-generator https://github.com/ekalinin/envirius/blob/master/README.md
+$ docker run -it markdown-toc-generator https://github.com/yiranzai/envirius/blob/master/README.md
 ```
 
 * Run on a local file (need to share volume with docker)
 
 ```shell
-$ docker run -it -v /data/ekalinin/envirius:/data markdown-toc-generator /data/README.md
+$ docker run -it -v /data/yiranzai/envirius:/data markdown-toc-generator /data/README.md
 ```
 
 Public
@@ -439,5 +439,5 @@ $ docker images | grep toc
 evkalinin/gh-md-toc                       0.7.0 0b8db6aed298        11 minutes ago      147MB
 
 $ docker run -it evkalinin/gh-md-toc:0.7.0 \
-    https://github.com/ekalinin/envirius/blob/master/README.md
+    https://github.com/yiranzai/envirius/blob/master/README.md
 ```
